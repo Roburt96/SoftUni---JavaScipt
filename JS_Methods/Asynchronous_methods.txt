@@ -1,0 +1,51 @@
+setTimeout(): This method is used to execute a function after a specified amount of time has elapsed. 
+It takes two arguments: a callback function to execute, and the number of milliseconds to wait before 
+executing the function.
+
+setTimeout(() => {
+  console.log("Hello, world!");
+}, 1000); // Print "Hello, world!" after 1 second
+
+###################################################################
+
+setInterval(): This method is used to execute a function repeatedly at a specified interval. 
+It takes two arguments: a callback function to execute, and the number of milliseconds to wait 
+before executing the function again.
+
+let count = 0;
+const intervalId = setInterval(() => {
+  console.log(count++);
+}, 1000); // Print a count every second
+
+// Stop the interval after 10 seconds
+setTimeout(() => clearInterval(intervalId), 10000);
+
+###################################################################
+
+Promise.all(): This method is used to wait for multiple promises to resolve. 
+It takes an array of promises and returns a new promise that resolves with an array of results 
+from all of the input promises. If any of the input promises reject, the new promise will 
+reject with the reason of the first input promise to reject.
+
+const promise1 = new Promise(resolve => setTimeout(() => resolve("Hello"), 1000));
+const promise2 = new Promise(resolve => setTimeout(() => resolve("world!"), 2000));
+
+Promise.all([promise1, promise2])
+  .then(results => console.log(results.join(" "))); // Print "Hello world!" after 2 seconds
+
+###################################################################
+
+async/await: These keywords are used to write asynchronous code that looks more like 
+synchronous code. async is used to declare a function that returns a Promise, and await is used to 
+pause the execution of a function until a Promise resolves.
+
+async function myAsyncFunction() {
+  const result1 = await somePromise();
+  const result2 = await anotherPromise();
+  return result1 + result2;
+}
+
+myAsyncFunction()
+  .then(result => console.log(result));
+
+  ###################################################################
